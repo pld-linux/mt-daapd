@@ -1,13 +1,14 @@
 Summary:	A multi-threaded implementation of Apple's DAAP server
 Summary(pl):	Wielow±tkowa implementacja serwera DAAP Apple
 Name:		mt-daapd
-Version:	0.2.0
+Version:	0.2.1.1
 Release:	1
 License:	GPL
 Group:		Networking/Daemons
-Source0:	http://dl.sourceforge.net/mt-daapd/mt-daapd-0.2.0.tar.gz
-# Source0-md5:	62465e98dd93cd3553b329298d13399d
+Source0:	http://dl.sourceforge.net/sourceforge/mt-daapd/%{name}-%{version}.tar.gz
+# Source0-md5:	87356d2750ad82388a58d901aa566465
 URL:		http://sourceforge.net/project/showfiles.php?group_id=98211
+BuildRequires:	autoconf
 BuildRequires:	gdbm-devel
 BuildRequires:	libid3tag-devel
 Requires(post,preun):	/sbin/chkconfig
@@ -28,6 +29,7 @@ ASPL Rendezvous Apple.
 %setup -q
 
 %build
+%{__autoconf}
 %configure
 %{__make}
 
