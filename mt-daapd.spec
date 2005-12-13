@@ -5,7 +5,7 @@ Version:	0.2.3
 Release:	1
 License:	GPL
 Group:		Networking/Daemons
-Source0:	http://dl.sourceforge.net/sourceforge/mt-daapd/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/mt-daapd/%{name}-%{version}.tar.gz
 # Source0-md5:	17aa3fa0601cbe172d18f53489141e5a
 URL:		http://sourceforge.net/project/showfiles.php?group_id=98211
 BuildRequires:	autoconf
@@ -22,8 +22,8 @@ Mac iTunes clients. This version uses Apple's ASPL Rendezvous daemon.
 %description -l pl
 Wielow±tkowa implementacja serwera DAAP Apple - mt-daapd umo¿liwia
 maszynie linuksowej rozg³aszaæ pliki MP3 do wykorzystania przez
-windowsowych lub macowych klientów iTunes. Ta wersja u¿ywa demona
-ASPL Rendezvous Apple.
+windowsowych lub macowych klientów iTunes. Ta wersja u¿ywa demona ASPL
+Rendezvous Apple.
 
 %prep
 %setup -q
@@ -60,7 +60,7 @@ fi
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_sbindir}/mt-daapd
 %attr(754,root,root) /etc/rc.d/init.d/mt-daapd
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/mt-daapd.conf
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/mt-daapd.playlist
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mt-daapd.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mt-daapd.playlist
 %{_datadir}/mt-daapd
 /var/cache/mt-daapd
