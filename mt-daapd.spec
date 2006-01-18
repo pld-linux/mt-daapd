@@ -7,7 +7,7 @@ License:	GPL
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/mt-daapd/%{name}-%{version}.tar.gz
 # Source0-md5:	17aa3fa0601cbe172d18f53489141e5a
-URL:		http://sourceforge.net/project/showfiles.php?group_id=98211
+URL:		http://www.mt-daapd.org/
 BuildRequires:	autoconf
 BuildRequires:	gdbm-devel
 BuildRequires:	libid3tag-devel
