@@ -9,7 +9,7 @@ Source0:	http://dl.sourceforge.net/mt-daapd/%{name}-%{version}.tar.gz
 # Source0-md5:	2e1cdbe6b94ef153e915806f80a28dca
 URL:		http://www.mt-daapd.org/
 BuildRequires:	autoconf
-BuildRequires:	howl-devel
+BuildRequires:	avahi-compat-howl-devel
 BuildRequires:	gdbm-devel
 BuildRequires:	libid3tag-devel
 Requires(post,preun):	/sbin/chkconfig
