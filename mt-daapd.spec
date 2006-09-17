@@ -1,3 +1,8 @@
+# TODO:
+# - the init script is severly broken
+# - the deamon runs as nobody (won't work without a+rw /var/cache/mt-daapd
+#   and this is wrong)
+# 
 %define		_rev 1376
 #
 Summary:	A multi-threaded implementation of Apple's DAAP server
@@ -77,4 +82,4 @@ fi
 %attr(754,root,root) /etc/rc.d/init.d/mt-daapd
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mt-daapd.conf
 %{_datadir}/mt-daapd
-%attr(777,root,root) /var/cache/mt-daapd
+/var/cache/mt-daapd
