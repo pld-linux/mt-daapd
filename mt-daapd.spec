@@ -1,5 +1,5 @@
 Summary:	A multi-threaded implementation of Apple's DAAP server
-Summary(pl):	Wielow±tkowa implementacja serwera DAAP Apple
+Summary(pl.UTF-8):   WielowÄ…tkowa implementacja serwera DAAP Apple
 Name:		mt-daapd
 Version:	0.2.4
 Release:	1
@@ -20,10 +20,10 @@ A multi-threaded implementation of Apple's DAAP server, mt-daapd
 allows a Linux machine to advertise MP3 files to be used by Windows or
 Mac iTunes clients. This version uses Apple's ASPL Rendezvous daemon.
 
-%description -l pl
-Wielow±tkowa implementacja serwera DAAP Apple - mt-daapd umo¿liwia
-maszynie linuksowej rozg³aszaæ pliki MP3 do wykorzystania przez
-windowsowych lub macowych klientów iTunes. Ta wersja u¿ywa demona ASPL
+%description -l pl.UTF-8
+WielowÄ…tkowa implementacja serwera DAAP Apple - mt-daapd umoÅ¼liwia
+maszynie linuksowej rozgÅ‚aszaÄ‡ pliki MP3 do wykorzystania przez
+windowsowych lub macowych klientÃ³w iTunes. Ta wersja uÅ¼ywa demona ASPL
 Rendezvous Apple.
 
 %prep
