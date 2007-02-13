@@ -6,7 +6,7 @@
 %define		_rev 1376
 #
 Summary:	A multi-threaded implementation of Apple's DAAP server
-Summary(pl.UTF-8):   Wielowątkowa implementacja serwera DAAP Apple
+Summary(pl.UTF-8):	Wielowątkowa implementacja serwera DAAP Apple
 Name:		mt-daapd
 Version:	0.2.4
 Release:	1.%{_rev}.1
