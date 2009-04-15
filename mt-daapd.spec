@@ -12,7 +12,7 @@ Release:	1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://dl.sourceforge.net/mt-daapd/%{name}-%{version}.tar.gz
-# Source0-md5:	1c552fbc0822f943fd00abd46739193f
+# Source0-md5:	67bef9fb14d487693b0dfb792c3f1b05
 URL:		http://www.fireflymediaserver.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
