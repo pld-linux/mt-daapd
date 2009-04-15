@@ -2,20 +2,18 @@
 # - the init script is severly broken
 # - the deamon runs as nobody (won't work without a+rw /var/cache/mt-daapd
 #   and this is wrong)
+# - as-needed has to be fixed
 # 
-%define		_rev 1376
-#
 Summary:	A multi-threaded implementation of Apple's DAAP server
 Summary(pl.UTF-8):	Wielowątkowa implementacja serwera DAAP Apple
 Name:		mt-daapd
-Version:	0.2.4
-Release:	1.%{_rev}.1
+Version:	0.2.4.2
+Release:	1
 License:	GPL
 Group:		Networking/Daemons
-Source0:        http://nightlies.mt-daapd.org/mt-daapd-svn-%{_rev}.tar.gz
+Source0:	http://dl.sourceforge.net/mt-daapd/%{name}-%{version}.tar.gz
 # Source0-md5:	1c552fbc0822f943fd00abd46739193f
-#Source0:	http://dl.sourceforge.net/mt-daapd/%{name}-%{version}.tar.gz
-URL:		http://www.mt-daapd.org/
+URL:		http://www.fireflymediaserver.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	avahi-compat-howl-devel
@@ -27,6 +25,8 @@ BuildRequires:	sqlite-devel
 Requires(post,preun):	/sbin/chkconfig
 Requires:	vorbis-tools
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		filterout_ld	-Wl,--as-needed
 
 %description
 A multi-threaded implementation of Apple's DAAP server, mt-daapd
@@ -40,7 +40,7 @@ windowsowych lub macowych klientów iTunes. Ta wersja używa demona ASPL
 Rendezvous Apple.
 
 %prep
-%setup -q -n %{name}-svn-%{_rev}
+%setup -q
 
 %build
 %{__libtoolize}
@@ -55,13 +55,12 @@ Rendezvous Apple.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{/etc/rc.d/init.d,/var/cache/mt-daapd}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
-install -d $RPM_BUILD_ROOT/var/cache/mt-daapd
-install contrib/init.d/mt-daapd-fedora $RPM_BUILD_ROOT/etc/rc.d/init.d/mt-daapd
+install contrib/mt-daapd $RPM_BUILD_ROOT/etc/rc.d/init.d/mt-daapd
 install contrib/mt-daapd.conf $RPM_BUILD_ROOT%{_sysconfdir}
 
 %clean
@@ -77,9 +76,9 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_sbindir}/mt-daapd
-%attr(755,root,root) %{_bindir}/*
-%attr(754,root,root) /etc/rc.d/init.d/mt-daapd
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mt-daapd.conf
+%attr(755,root,root) %{_sbindir}/mt-daapd
+#%attr(755,root,root) %{_bindir}/*
+%attr(754,root,root) /etc/rc.d/init.d/mt-daapd
 %{_datadir}/mt-daapd
 /var/cache/mt-daapd
