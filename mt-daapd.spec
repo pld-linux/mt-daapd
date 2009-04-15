@@ -62,6 +62,7 @@ install -d $RPM_BUILD_ROOT{/etc/rc.d/init.d,/var/cache/mt-daapd}
 
 install contrib/mt-daapd $RPM_BUILD_ROOT/etc/rc.d/init.d/mt-daapd
 install contrib/mt-daapd.conf $RPM_BUILD_ROOT%{_sysconfdir}
+install contrib/mt-daapd.playlist $RPM_BUILD_ROOT%{_sysconfdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -77,8 +78,8 @@ fi
 %files
 %defattr(644,root,root,755)
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mt-daapd.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mt-daapd.playlist
 %attr(755,root,root) %{_sbindir}/mt-daapd
-#%attr(755,root,root) %{_bindir}/*
 %attr(754,root,root) /etc/rc.d/init.d/mt-daapd
 %{_datadir}/mt-daapd
 /var/cache/mt-daapd
